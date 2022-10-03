@@ -1,31 +1,45 @@
-import Link from "next/link"
-import Layout from "../../components/Layout"
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import Layout from "../../components/Layout";
+import LoadingAnimated from "../../components/loadingAnimated";
+const DocsPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const call = async () => {
+      setIsLoading(true);
+      const res = await fetch("http://jsonplaceholder.typicode.com/posts");
+      const d = await res.json();
+      setIsLoading(false);
+      setData(d);
+    };
+    call();
+  }, []);
 
-const DocsPage = ({data}) =>{
-    return (
-        <Layout title={"Docs"}>
-           <ul>
-           { data !== undefined ?
-                data.map((e)=>{
-                    return <li key={e.id}>
-                        <p>{e.title}</p>
-                        <Link href={`/posts/${encodeURIComponent(e.id)}`}>post</Link>
-                    </li>
-                })
-                : <p>NO hay post</p>
-            }
-           </ul>
-        </Layout>
-    )
-}
-
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch('http://jsonplaceholder.typicode.com/posts')
-    const data = await res.json()
-  
-    // Pass data to the page via props
-    return { props: { data } }
+  if (isLoading) {
+    return <LoadingAnimated></LoadingAnimated>;
+  }
+  if (data === null && !isLoading) {
+    return <p>No hay Posts</p>;
   }
 
-export default DocsPage
+  if (data !== null) {
+    return (
+      <Layout title={"Docs"}>
+        <ul>
+          {data.map((e) => {
+            return (
+              <li key={e.id}>
+                <p>{e.title}</p>
+                <Link href={`/posts/${encodeURIComponent(e.id)}`}>
+                  <a className="text-indigo-700">Post</a>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </Layout>
+    );
+  }
+};
+export default DocsPage;
