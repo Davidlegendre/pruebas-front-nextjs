@@ -1,0 +1,79 @@
+
+.page404 .color-theme-letra {
+    fill: #4948cf;
+}
+.page404 .cuerpo {
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page404 .img > g, .page404 .img 
+{
+    width: 90% !important;
+    fill: #4948cf;
+}
+.page404
+{
+    margin: 0px;
+}
+.page404 .descriptiontriste
+{
+    display: flex;
+align-items: center;
+margin-top: 50px;
+}
+.page404 .descriptiontriste svg
+{
+    margin-right: 10px;
+    width: 57px;
+    height: 100%;
+}
+.page404 .descriptiontriste div
+{
+    display: flex;    
+    height: max-content;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.page404 .descriptiontriste button
+{
+    width: 100%;
+    margin-top: 10px;
+}
+    .page404 .descriptiontriste p {
+        margin: 0px;
+        margin-right: 10px;
+        font-size: 20px;
+        font-family: "Segoe UI Semibold";
+    }
+@media screen and (max-width: 500px ) {
+    
+    .page404 .descriptiontriste
+    {
+        width: 80%;
+        margin-top: 30px;
+        flex-direction: column;
+    }
+.page404 .descriptiontriste p
+{
+    font-size: 18px;
+    text-align: center;
+    width: 80%;
+    margin-top: 10px;
+}
+.page404 .descriptiontriste button
+{
+    width: 80%;
+    margin-top: 20px;
+}
+.page404 .descriptiontriste svg
+{
+    width: 45px;
+    height: 100%;
+}
+}
