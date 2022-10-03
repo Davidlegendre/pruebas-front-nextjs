@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
-import LoadingAnimated from "../../components/loadingAnimated";
+import LoadingAnimated from "../../components/LoadingAnimated";
 
 const PostDetailPage = () => {
   const router = useRouter()
