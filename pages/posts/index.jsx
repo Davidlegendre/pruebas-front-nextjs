@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
-import LoadingAnimated from "../../components/loadingAnimated";
+import LoadingAnimated from "../../components/LoadingAnimated";
+
 const DocsPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);

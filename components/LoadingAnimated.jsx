@@ -1,6 +1,4 @@
-
-
-const LoadingAnimated = () =>{
+export default function LoadingAnimated(){
 
     return(
         <div className="bg-white absolute top-0 w-full h-10">
@@ -8,4 +6,3 @@ const LoadingAnimated = () =>{
         </div>
     )
 }
-export default LoadingAnimated
