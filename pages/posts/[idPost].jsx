@@ -14,7 +14,7 @@ const PostDetailPage = () => {
         const { idPost } = router.query;
 
         const data = await fetch(
-          "http://jsonplaceholder.typicode.com/posts/" + idPost
+          "https://jsonplaceholder.typicode.com/posts/" + idPost
         );
         const p = await data.json();
         setIsLoading(false)

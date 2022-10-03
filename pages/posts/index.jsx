@@ -9,7 +9,7 @@ const DocsPage = () => {
   useEffect(() => {
     const call = async () => {
       setIsLoading(true);
-      const res = await fetch("http://jsonplaceholder.typicode.com/posts");
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       const d = await res.json();
       setIsLoading(false);
       setData(d);
