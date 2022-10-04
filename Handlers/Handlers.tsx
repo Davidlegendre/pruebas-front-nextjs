@@ -11,16 +11,20 @@ interface IHandlers {
 }
 
 const loginHandler = async (data: SingInData) => {
-  const result = await fetch(Config().loginURl, {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "content-type": "application/json",
-    },
-  })
+  let result = null
+  try {
+    result = await fetch(Config().loginURl, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "content-type": "application/json",
+      },
+    })
     .then((res) => res.json())
-    .catch((err) => console.error(err));
-
+  } catch (error) {
+    
+  }
+  
   return result;
 };
 
@@ -33,7 +37,7 @@ const getApiUserDataHandler = async (token: string) => {
     },
   })
     .then((res) => res.json())
-    .catch((err) => console.error(err));
+    .catch();
   return result;
 };
 

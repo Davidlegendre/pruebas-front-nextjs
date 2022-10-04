@@ -3,11 +3,12 @@ import { useContext } from "react";
 import Handlers from "../Handlers/Handlers";
 import ActionLink from "./ActionLink.jsx";
 import { AuthContext } from "./auth/AuthContext";
+import Image from "next/image";
 
 export default function Navbar() {
-  const { user } = useContext(AuthContext);
 
   const router = useRouter();
+  const { user } = useContext(AuthContext);
   return (
     <nav className="flex flex-row justify-between">
       <ul className="flex flex-row justify-between">
@@ -31,8 +32,8 @@ export default function Navbar() {
           </button>
         </li>
       </ul>
-      <div>
-        <p>{user && user.name}</p>
+      <div className="m-2">
+        {user ? <p>{user?.name}</p>: <img src={"https://media.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif"} width={30} height={30}></img>}
       </div>
     </nav>
   );

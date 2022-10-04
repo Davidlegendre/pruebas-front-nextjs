@@ -5,10 +5,10 @@ import { useRouter } from "next/router";
 import Handlers from "../../Handlers/Handlers";
 
 type User = {
-    name: string;
-    email: string;
-    _id: string
-}
+  name: string;
+  email: string;
+  _id: string;
+};
 
 type SingInData = {
   email: string;
@@ -25,32 +25,40 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState<User | null>(null);
+  const isAuthenticated = !!user;
 
+  const router = useRouter();
 
-  const router = useRouter();  
+  const cargarUsuario = async (token) => {
+    const data = await Handlers().getApiUserDataHandler(token);
+    setUser(data.user);
+  };
 
   useEffect(() => {
     const { Token } = parseCookies();
-          if (Token) {
-            Handlers().getApiUserDataHandler(Token).then(result=>{
-                 setUser(result.user)
-            });
-           
-          }
+
+    if (Token) {
+      cargarUsuario(Token);
+    }
   }, []);
 
   const singin = async (data: SingInData) => {
     const result = await Handlers().loginHandler(data);
+    if (result.msg === "Bad Request") {
+      throw "error";
+    } else {
+      const token: string = result?.token;
+      if (token) {
+        setCookie(undefined, "Token", token, {
+          maxAge: 60 * 60 * 1, //1hora
+        });
 
-    const token: string = result?.token;
-    if (token) {
-      setCookie(undefined, "Token", token, {
-        maxAge: 60 * 60 * 1, //1hora
-      });
-      router.push("/dashboard")
+        await cargarUsuario(token);
+        router.push("/dashboard");
+      }
     }
   };
-  const isAuthenticated =  !!user
+
   return (
     <AuthContext.Provider
       value={{

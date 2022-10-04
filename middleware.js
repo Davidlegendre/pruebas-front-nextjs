@@ -2,16 +2,13 @@ import { NextResponse } from "next/server";
 
 export async function middleware(req){
     let verify = req.cookies.get('Token')
-    let host = req.nextUrl.origin
-    let url = req.nextUrl.pathname
 
-    if(!verify && url.includes('/dashboard'))
+    if(!verify)
     {
-        return NextResponse.redirect(host + '/')
-    }
-
-    if(!verify && url.includes('/posts'))
-    {
-        return NextResponse.redirect(host + '/')
+        return NextResponse.redirect(new URL('/', req.url))
     }
 }
+
+export const config = {
+    matcher: ['/dashboard','/dashboard/:paht*', '/post', '/post/:path*']
+  }
