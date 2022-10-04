@@ -11,8 +11,9 @@ export default function SinginPage() {
   const { Token } = parseCookies();
   if (Token !== undefined) {
     router.push("/dashboard");
-  } else {
-    const [isloading, setisloagind] = useState(false);
+  } 
+
+  const [isloading, setisloagind] = useState(false);
     const [erro, setError] = useState(false)
     const { register, handleSubmit } = useForm();
 
@@ -62,7 +63,7 @@ export default function SinginPage() {
             Logearse
           </button>
         <div>
-        {isloading && <img src={"https://media.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif"} width={30} height={30}></img>}
+        {isloading && <p>cargando</p>}
         </div>
         <div>
         {erro && <p>Login Error</p>}
@@ -70,5 +71,4 @@ export default function SinginPage() {
         </form>
       </div>
     );
-  }
 }

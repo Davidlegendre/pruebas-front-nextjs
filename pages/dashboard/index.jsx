@@ -29,7 +29,7 @@ export default function Home() {
         {products.length !== 0 ? (
           products.map((p) => {
           
-          return <ProductCard Producto={p}></ProductCard>
+          return <ProductCard key={p._id} Producto={p}></ProductCard>
           }) 
           
         ) : (

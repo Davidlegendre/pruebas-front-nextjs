@@ -33,7 +33,7 @@ export default function Navbar() {
         </li>
       </ul>
       <div className="m-2">
-        {user ? <p>{user?.name}</p>: <img src={"https://media.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif"} width={30} height={30}></img>}
+        {user ? <p>{user?.name}</p>: <p>loading</p>}
       </div>
     </nav>
   );
