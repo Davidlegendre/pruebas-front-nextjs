@@ -25,7 +25,7 @@ export default function RegisterPage() {
    <Layout title={"Registro"} isNavbarVisibile={false}>
      <div className="flex justify-center items-center h-screen">
       <form
-        className="bg-neutral-800 dark:bg-white dark:text-neutral-900 p-2 rounded grid gap-1"
+        className="bg-neutral-800 dark:fondoLogin p-2 rounded grid gap-1"
         onSubmit={handleSubmit(submitForm)}
       >
         <div>
@@ -34,7 +34,7 @@ export default function RegisterPage() {
             type={"text"}
             name="name"
             placeholder="name"
-            className="p-2 bg-neutral-200 rounded"
+            className="p-2 bg-neutral-200 dark:bg-neutral-700 rounded"
           ></input>
         </div>
         <div>
@@ -43,7 +43,7 @@ export default function RegisterPage() {
             type={"email"}
             name="email"
             placeholder="email"
-            className="p-2 bg-neutral-200 rounded"
+            className="p-2 bg-neutral-200 dark:bg-neutral-700 rounded"
           ></input>
         </div>
         <div>
@@ -52,15 +52,15 @@ export default function RegisterPage() {
             type={"password"}
             name="password"
             placeholder="password"
-            className="p-2 bg-neutral-200 rounded"
+            className="p-2 bg-neutral-200 dark:bg-neutral-700 rounded"
           ></input>
         </div>
         <div className="flex justify-between">
-          <button className="p-2 w-full hover:bg-slate-400 rounded">
+          <button className="p-2 w-full hover:bg-neutral-700 rounded">
             Registrarse
           </button>
           <Link href={"/"}>
-            <a className="p-2 w-full hover:bg-slate-400 rounded text-center">
+            <a className="p-2 w-full hover:bg-neutral-700 rounded text-center">
               Ir a Login
             </a>
           </Link>

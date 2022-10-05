@@ -28,7 +28,7 @@ export default function SinginPage() {
      <Layout title={"Login"} isNavbarVisibile={false}>
        <div className="flex justify-center items-center h-screen">
         <form
-          className="bg-neutral-800 dark:bg-white gap-1 grid dark:text-neutral-900 p-2 rounded"
+          className="bg-neutral-800 dark:fondoLogin gap-1 grid dark:text-white p-2 rounded"
           onSubmit={handleSubmit(submitForm)}
         >
           <div>
@@ -37,7 +37,7 @@ export default function SinginPage() {
               type={"email"}
               name="email"
               placeholder="email"
-              className="p-2 w-full bg-neutral-200 rounded"
+              className="p-2 w-full dark:bg-neutral-700 bg-neutral-200 rounded"
             ></input>
           </div>
           <div>
@@ -46,22 +46,20 @@ export default function SinginPage() {
               type={"password"}
               name="password"
               placeholder="password"
-              className="p-2 w-full bg-neutral-200 rounded"
+              className="p-2 w-full dark:bg-neutral-700 bg-neutral-200 rounded"
             ></input>
           </div>
           
           <div className="flex justify-between">
-          <button className="p-2 w-full hover:bg-slate-400 rounded">
+          <button className="p-2 w-full hover:bg-neutral-700 rounded">
             Logearse
           </button>
           <Link href={"/register"}>
-            <a className="p-2  hover:bg-slate-400 rounded text-center w-60">Ir a Registro</a>
+            <a className="p-2  hover:bg-neutral-700 rounded text-center w-60">Ir a Registro</a>
           </Link>
         </div>
         <div>
         {isloading && <p>cargando</p>}
-        </div>
-        <div>
         {erro && <p>Login Error</p>}
         </div>
         </form>
