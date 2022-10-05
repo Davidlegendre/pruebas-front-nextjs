@@ -6,6 +6,10 @@
   .dark {
     @apply bg-zinc-900 text-white;
   }
+
+  .fondoLogin{
+    background-color: #17191A;  }
+
   .ligth {
     @apply bg-white text-black;
   }
