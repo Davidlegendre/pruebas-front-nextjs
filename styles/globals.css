@@ -9,9 +9,6 @@
   .ligth {
     @apply bg-white text-black;
   }
-  .Loading svg{
-    @apply mr-auto bg-center overflow-hidden w-1
-  }
   html{
 
     @apply scroll-smooth dark:dark bg-white
@@ -39,3 +36,4 @@
  
   }
 }
+

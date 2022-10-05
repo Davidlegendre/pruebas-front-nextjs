@@ -15,17 +15,14 @@ interface IProductReg {
 }
 
 const productsGetAll = async(token: string) => {
-    let result = null
-    try {
-         result = await fetch(Config().productsGetAllURL, {
-            method: "GET",
-            headers: {
-                Authorization: "Bearer " + token,
-            }
-        }).then((res) => res.json())
-    } catch (error) {
-        
-    }
+    
+   const result = await fetch(Config().productsGetAllURL, {
+        method: "GET",
+        headers: {
+            Authorization: "Bearer " + token,
+        }
+    }).then((res) => res.json())
+    .catch()
 
     return result?.products
 }

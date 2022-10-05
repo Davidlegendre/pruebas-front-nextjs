@@ -22,7 +22,7 @@ export default function Navbar() {
           <ActionLink href="/posts">post</ActionLink>
         </li>
         <li className="m-2">
-          <button
+          <button 
             onClick={() => {
               Handlers().logoutHandler();
               router.push("/")

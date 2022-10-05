@@ -15,10 +15,17 @@ type SingInData = {
   password: string;
 };
 
+type RegisterData = {
+  name: string;
+  email: string;
+  password: string;
+}
+
 type AuthContextType = {
   isAuthenticated: boolean;
   singin: (data: SingInData) => Promise<void>;
   user: any;
+  registerUser: (data: RegisterData) => Promise<any>
 };
 
 export const AuthContext = createContext({} as AuthContextType);
@@ -59,12 +66,18 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const registerUser = async (data: RegisterData) => {
+    const result = await Handlers().registerHandler(data)
+    return result?.msg;
+  }
+
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
         singin,
         user,
+        registerUser
       }}
     >
       {children}
