@@ -1,11 +1,20 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../components/auth/AuthContext";
 import { parseCookies } from "nookies";
 import Link from "next/link";
 import Layout from "../components/Layout";
+import { useRouter } from 'next/router';
 
 export default function RegisterPage() {
+
+  const router = useRouter()
+  useEffect(()=>{
+    const { Token } = parseCookies();
+    if (Token !== undefined) {
+      router.push("/dashboard")
+    } 
+  })
 
   const [isloading, setisloagind] = useState(false);
   const [erro, setError] = useState("");
@@ -73,20 +82,4 @@ export default function RegisterPage() {
     </div>
    </Layout>
   );
-}
-
-export async function getServerSideProps(){
-  
-  const { Token } = parseCookies();
-  if (Token !== undefined) {
-    return {
-      redirect: {
-        destination: "/dashboard",
-        permanent: false
-      }
-    }
-  } 
-  return {
-    props: {}
-  }
 }

@@ -21,7 +21,7 @@ const PostDetailPage = () => {
         setPost(p)
     }
     call()
-  }, [])
+  })
 
   if (isLoading) {
     return <LoadingAnimated></LoadingAnimated>
