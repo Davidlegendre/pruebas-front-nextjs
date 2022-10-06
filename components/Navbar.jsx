@@ -3,7 +3,6 @@ import { useContext } from "react";
 import Handlers from "../Handlers/Handlers";
 import ActionLink from "./ActionLink.jsx";
 import { AuthContext } from "./auth/AuthContext";
-import Image from "next/image";
 
 export default function Navbar() {
 
